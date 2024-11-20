@@ -10,32 +10,32 @@ import Foundation
 import UIKit
 
 @objc(MiSignetResponse)
-final class ObjC_MiSignetResponse: NSObject {
+public final class ObjC_MiSignetResponse: NSObject {
     private var miSignetResponse: MiSignetResponse?
     
-    init(response: MiSignetResponse) {
+    public init(response: MiSignetResponse) {
         self.miSignetResponse = response
     }
     
-    var type: Int {
+    public var type: Int {
         return self.miSignetResponse!.type.rawValue
     }
     
-    var code: Int {
+    public var code: Int {
         return self.miSignetResponse!.code.rawValue
     }
     
-    var state: Int {
+    public var state: Int {
         return self.miSignetResponse!.state.rawValue
     }
     
-    var data: String? {
+    public var data: String? {
         return self.miSignetResponse!.data
     }
 }
 
 @objc(MiSignetHelper)
-public final class ObjC_MiSignetHelper: NSObject {
+final class ObjC_MiSignetHelper: NSObject {
     // Check if Mi-Signet is installed
     @MainActor
     public static func isMiSignetInstalled() -> Bool {
