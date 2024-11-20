@@ -105,7 +105,7 @@ struct MiSignetHelper {
     }
     
     // Verify an URL response
-    static func verifyURL(_ url: URL, packageName: String, options: [UIApplication.OpenURLOptionsKey: Any]) -> MiSignetResponse? {
+    public static func verifyURL(_ url: URL, packageName: String, options: [UIApplication.OpenURLOptionsKey: Any]) -> MiSignetResponse? {
         // Extract URL components
         guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let scheme = urlComponents.scheme else {
