@@ -23,11 +23,8 @@ public struct MiSignetHelper {
     // Check if Mi-Signet is installed
     @MainActor
     public static func isMiSignetInstalled() -> Bool {
-        if let url = getRequestURL(nil) {
-            return UIApplication.shared.canOpenURL(url)
-        } else {
-            return false
-        }
+        guard let url = getRequestURL(nil) else { return false }
+        return UIApplication.shared.canOpenURL(url)
     }
     
     // Send an authorization request for registration
@@ -124,8 +121,9 @@ public struct MiSignetHelper {
         
         return nil
     }
+}
 
-    
+extension MiSignetHelper {
     // MARK: - private functions
     // Create an Mi-Signet request URL
     private static func sendRequest(_ type: MiSignetRequestType, parameters: [String: String], errorHandler: @escaping () -> Void) {
@@ -180,7 +178,6 @@ public struct MiSignetHelper {
     }
 
     // Helper methods to add query items for specific request types
-
     private static func addAuthorizeRegistrationItems(to queryItems: inout [URLQueryItem], parameters: [String: String]) {
         if let fullName = parameters["fullname"], let icNumber = parameters["ic"] {
             queryItems.append(contentsOf: [
@@ -296,7 +293,6 @@ public struct MiSignetHelper {
         }
     }
 
-    
     // Get the Mi-Signet request URL
     private static func getRequestURL(_ queryItems: [URLQueryItem]?) -> URL? {
         // Get the URL scheme and package name
@@ -314,7 +310,6 @@ public struct MiSignetHelper {
         return urlComponents.url
     }
 
-    
     // Get the name of the app
     private static func getAppName() -> String? {
         // Try to retrieve the app name from CFBundleDisplayName or CFDisplayName

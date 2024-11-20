@@ -62,5 +62,4 @@ public struct MiSignetResponse {
 
         return MiSignetResponse(type: unwrappedType, code: unwrappedCode, state: unwrappedState, data: data)
     }
-
 }

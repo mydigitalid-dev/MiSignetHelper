@@ -43,7 +43,6 @@ final class ObjC_MiSignetHelper: NSObject {
     }
     
     // Send an authorization request for registration
-    
     public static func sendAuthorizeRegistrationRequest(fullName: String, icNumber: String, errorHandler: @escaping () -> Void) {
         MiSignetHelper.sendAuthorizeRegistrationRequest(fullName: fullName, icNumber: icNumber, errorHandler: errorHandler)
     }
