@@ -1,6 +1,8 @@
-import Testing
 @testable import MiSignetHelper
+import Testing
 
-@Test func example() async throws {
-    // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+@MainActor
+@Test("This will always return false as fresh simulator does not pre installed with signet clinet")
+func mainActorFunction() {
+    #expect(MiSignetHelper.isMiSignetInstalled() == false)
 }

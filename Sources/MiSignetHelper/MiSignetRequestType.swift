@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum MiSignetRequestType : Int {
+public enum MiSignetRequestType: Int {
     case authorizeRegistration = 0
     case executeRegistration = 1
     case authorizeStoreCertificate = 2
