@@ -10,7 +10,7 @@
 import Foundation
 import UIKit
 
-struct MiSignetHelper {
+public struct MiSignetHelper {
     private static let misignetPackageNameInfoName = "Mi-Signet Package Name"
     private static let misignetRequestURLSchemeInfoName = "Mi-Signet Request URL Scheme"
     private static let misignetResponseURLSchemeInfoName = "Mi-Signet Response URL Scheme"

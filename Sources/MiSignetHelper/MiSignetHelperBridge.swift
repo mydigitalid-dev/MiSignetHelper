@@ -35,7 +35,7 @@ final class ObjC_MiSignetResponse: NSObject {
 }
 
 @objc(MiSignetHelper)
-final class ObjC_MiSignetHelper: NSObject {
+public final class ObjC_MiSignetHelper: NSObject {
     // Check if Mi-Signet is installed
     @MainActor
     public static func isMiSignetInstalled() -> Bool {
