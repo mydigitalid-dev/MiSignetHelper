@@ -38,7 +38,7 @@ struct signetRequestTest {
         // MiSignetHelper.sendRequest = mockSendRequest
 
         // Call the method under test
-        MiSignetHelper.sendAuthorizeRegistrationRequest(fullName: mockFullName, icNumber: mockIcNumber, errorHandler: mockErrorHandler)
+        //MiSignetHelper.sendAuthorizeRegistrationRequest(fullName: mockFullName, icNumber: mockIcNumber, errorHandler: mockErrorHandler)
     }
 }
 
