@@ -35,14 +35,14 @@ public final class ObjC_MiSignetResponse: NSObject {
 }
 
 @objc(MiSignetHelper)
-final class ObjC_MiSignetHelper: NSObject {
+public final class ObjC_MiSignetHelper: NSObject {
     // Check if Mi-Signet is installed
-    @MainActor
     public static func isMiSignetInstalled() -> Bool {
         return MiSignetHelper.isMiSignetInstalled()
     }
     
     // Send an authorization request for registration
+    
     public static func sendAuthorizeRegistrationRequest(fullName: String, icNumber: String, errorHandler: @escaping () -> Void) {
         MiSignetHelper.sendAuthorizeRegistrationRequest(fullName: fullName, icNumber: icNumber, errorHandler: errorHandler)
     }
@@ -101,18 +101,19 @@ final class ObjC_MiSignetHelper: NSObject {
     public static func getState(errorHandler: @escaping () -> Void) {
         MiSignetHelper.getState(errorHandler: errorHandler)
     }
-    
+
     // send the request to retrive engine version
     public static func getEngineVersion(versionNumber: String, errorHandler: @escaping () -> Void) {
         MiSignetHelper.getEngineVersion(errorHandler: errorHandler)
     }
     
     // Verify an URL response
-    public static func verifyURL(_ url: URL, packageName: String, options: [UIApplication.OpenURLOptionsKey: Any]) -> ObjC_MiSignetResponse? {
-        guard let response = MiSignetHelper.verifyURL(url, packageName: packageName, options: options) else {
+    public static func verifyURL(_ url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> ObjC_MiSignetResponse? {
+        let response = MiSignetHelper.verifyURL(url, options: options)
+        if let response = response {
+            return ObjC_MiSignetResponse(response: response)
+        } else {
             return nil
         }
-        
-        return ObjC_MiSignetResponse(response: response)
     }
 }

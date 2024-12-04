@@ -7,7 +7,7 @@
 //
 import Foundation
 
-public enum MiSignetState: Int {
+public enum MiSignetState : Int {
     case unregistered = 0
     case keypairGenerated = 1
     case registered = 2

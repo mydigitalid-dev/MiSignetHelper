@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum MiSignetResponseCode: Int {
+public enum MiSignetResponseCode : Int {
     case ok = 1
     case invalidDataFormatError = 401
     case invalidRequestInformationError = 402
