@@ -283,8 +283,8 @@ extension MiSignetHelper {
 
     // Return a property value
     private static func getValueFromInfoList(_ name: String) -> String? {
-        print("===============================\(name)[\(Bundle.main.infoDictionary?[name] as? String)]")
-        guard let value = Bundle.main.infoDictionary?[name] as? String, !value.isEmpty else {
+        guard let value = Bundle.main.infoDictionary?[name] as? String,
+                !value.trimmingCharacters(in: .whitespaces).isEmpty else {
             return nil
         }
         return value
