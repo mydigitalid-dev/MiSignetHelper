@@ -62,12 +62,12 @@ public final class ObjC_MiSignetHelper: NSObject {
 //    }
     
     // Send an authorization request for submitting certificate
-    public static func sendAuthorizeSubmitCertificateRequest(useProxy: Bool, errorHandler: @escaping () -> Void) {
+    public static func sendAuthorizeSubmitCertificateRequest(useProxy: Bool, errorHandler: @escaping (MiSignetValidationError) -> Void) {
         MiSignetHelper.sendAuthorizeSubmitCertificateRequest(useProxy: useProxy, errorHandler: errorHandler)
     }
     
     // Send an execution request for submitting certificate
-    public static func sendExecuteSubmitCertificateRequest(data: String, useProxy: Bool, errorHandler: @escaping () -> Void) {
+    public static func sendExecuteSubmitCertificateRequest(data: String, useProxy: Bool, errorHandler: @escaping (MiSignetValidationError) -> Void) {
         MiSignetHelper.sendExecuteSubmitCertificateRequest(data: data, useProxy: useProxy, errorHandler: errorHandler)
     }
     
@@ -92,17 +92,17 @@ public final class ObjC_MiSignetHelper: NSObject {
 //    }
     
     // Send a request to view the certificate
-    public static func viewCertificate(errorHandler: @escaping () -> Void) {
+    public static func viewCertificate(errorHandler: @escaping (MiSignetValidationError) -> Void) {
         MiSignetHelper.viewCertificate(errorHandler: errorHandler)
     }
     
     // Send a request to retrieve the registration state of the Mi-Signet Client app
-    public static func getState(errorHandler: @escaping () -> Void) {
+    public static func getState(errorHandler: @escaping (MiSignetValidationError) -> Void) {
         MiSignetHelper.getState(errorHandler: errorHandler)
     }
 
     // send the request to retrive engine version
-    public static func getEngineVersion(versionNumber: String, errorHandler: @escaping () -> Void) {
+    public static func getEngineVersion(versionNumber: String, errorHandler: @escaping (MiSignetValidationError) -> Void) {
         MiSignetHelper.getEngineVersion(errorHandler: errorHandler)
     }
     
