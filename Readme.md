@@ -21,7 +21,8 @@ Usage:
 ```swift
 MiSignetHelper.debugMode(true)
 ```
-- New MiSignetValidationError enum and error closure now returns this. Usage:
+
+New MiSignetValidationError enum and error closure now returns this. Usage:
 ```swift
 MiSignetHelper.sendAuthorizeSubmitCertificateRequest(useProxy: false, errorHandler: { errorCode in
   print("🆘 Error requesting token 1 from MyDigitalID app. Error Code: \(errorCode)")
