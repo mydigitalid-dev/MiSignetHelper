@@ -28,30 +28,6 @@ public struct MiSignetHelper {
         isDebug = debugFlag
     }
 
-    // Send an authorization request for registration
-    //    public static func sendAuthorizeRegistrationRequest(fullName: String, icNumber: String, errorHandler: @escaping () -> Void) {
-    //        // print("sendAuthorizeRegistrationRequest MiSignetHelper")
-    //        let parameters = ["fullname": fullName, "ic": icNumber]
-    //        sendRequest(.authorizeRegistration, parameters: parameters, errorHandler: errorHandler)
-    //    }
-
-    // Send an execution request for registration
-    //    public static func sendExecuteRegistrationRequest(data: String, errorHandler: @escaping () -> Void) {
-    //        let parameters = ["data": data]
-    //        sendRequest(.executeRegistration, parameters: parameters, errorHandler: errorHandler)
-    //    }
-
-    // Send an authorization request for storing certificate
-    //    public static func sendAuthorizeStoreCertificateRequest(errorHandler: @escaping () -> Void) {
-    //        sendRequest(.authorizeStoreCertificate, parameters: [:], errorHandler: errorHandler)
-    //    }
-
-    // Send an execution request for storing certificate
-    //    public static func sendExecuteStoreCertificateRequest(data: String, userCert: String, errorHandler: @escaping () -> Void) {
-    //        let parameters = ["data": data, "usercert": userCert]
-    //        sendRequest(.executeStoreCertificate, parameters: parameters, errorHandler: errorHandler)
-    //    }
-
     // Send an authorization request for submitting certificate
     public static func sendAuthorizeSubmitCertificateRequest(useProxy: Bool, errorHandler: @escaping (MiSignetValidationError) -> Void) {
         let parameters = ["useproxy": String(useProxy)]
@@ -63,30 +39,6 @@ public struct MiSignetHelper {
         let parameters = ["data": data, "useproxy": String(useProxy)]
         sendRequest(.executeSubmitCertificate, parameters: parameters, errorHandler: errorHandler)
     }
-
-    // Send an authorization request for file signing
-    //    public static func sendAuthorizeFileSigning(fileName: String, mimeType: String, fileData: Data, useProxy: Bool, errorHandler: @escaping () -> Void) {
-    //        let parameters = ["filename": fileName, "mimetype": mimeType, "filedata": fileData.base64EncodedString(), "useproxy": String(useProxy)]
-    //        sendRequest(.authorizeFileSigning, parameters: parameters, errorHandler: errorHandler)
-    //    }
-
-    // Send an execution request for file signing
-    //    public static func sendExecuteFileSigning(data: String, fileData: Data, useProxy: Bool, errorHandler: @escaping () -> Void) {
-    //        let parameters = ["data": data, "filedata": fileData.base64EncodedString(), "useproxy": String(useProxy)]
-    //        sendRequest(.executeFileSigning, parameters: parameters, errorHandler: errorHandler)
-    //    }
-
-    // Send an authorization request for hash signing
-    //    public static func sendAuthorizeHashSigning(useProxy: Bool, errorHandler: @escaping () -> Void) {
-    //        let parameters = ["useproxy": String(useProxy)]
-    //        sendRequest(.authorizeHashSigning, parameters: parameters, errorHandler: errorHandler)
-    //    }
-
-    // Send an execution request for hash signing
-    //    public static func sendExecuteHashSigning(data: String, hashData: String, useProxy: Bool, errorHandler: @escaping () -> Void) {
-    //        let parameters = ["data": data, "hash": hashData, "useproxy": String(useProxy)]
-    //        sendRequest(.executeHashSigning, parameters: parameters, errorHandler: errorHandler)
-    //    }
 
     // Send a request to view the certificate
     public static func viewCertificate(errorHandler: @escaping (MiSignetValidationError) -> Void) {
@@ -114,9 +66,59 @@ public struct MiSignetHelper {
 
         return MiSignetResponse.fromURLQueryItems(queryItems)
     }
+
+    /*
+    // Send an authorization request for registration
+    public static func sendAuthorizeRegistrationRequest(fullName: String, icNumber: String, errorHandler: @escaping () -> Void) {
+        // print("sendAuthorizeRegistrationRequest MiSignetHelper")
+        let parameters = ["fullname": fullName, "ic": icNumber]
+        sendRequest(.authorizeRegistration, parameters: parameters, errorHandler: errorHandler)
+    }
+
+    // Send an execution request for registration
+    public static func sendExecuteRegistrationRequest(data: String, errorHandler: @escaping () -> Void) {
+        let parameters = ["data": data]
+        sendRequest(.executeRegistration, parameters: parameters, errorHandler: errorHandler)
+    }
+
+    // Send an authorization request for storing certificate
+    public static func sendAuthorizeStoreCertificateRequest(errorHandler: @escaping () -> Void) {
+        sendRequest(.authorizeStoreCertificate, parameters: [:], errorHandler: errorHandler)
+    }
+
+    // Send an execution request for storing certificate
+    public static func sendExecuteStoreCertificateRequest(data: String, userCert: String, errorHandler: @escaping () -> Void) {
+        let parameters = ["data": data, "usercert": userCert]
+        sendRequest(.executeStoreCertificate, parameters: parameters, errorHandler: errorHandler)
+    }
+
+    // Send an authorization request for file signing
+    public static func sendAuthorizeFileSigning(fileName: String, mimeType: String, fileData: Data, useProxy: Bool, errorHandler: @escaping () -> Void) {
+        let parameters = ["filename": fileName, "mimetype": mimeType, "filedata": fileData.base64EncodedString(), "useproxy": String(useProxy)]
+        sendRequest(.authorizeFileSigning, parameters: parameters, errorHandler: errorHandler)
+    }
+
+    // Send an execution request for file signing
+    public static func sendExecuteFileSigning(data: String, fileData: Data, useProxy: Bool, errorHandler: @escaping () -> Void) {
+        let parameters = ["data": data, "filedata": fileData.base64EncodedString(), "useproxy": String(useProxy)]
+        sendRequest(.executeFileSigning, parameters: parameters, errorHandler: errorHandler)
+    }
+
+    // Send an authorization request for hash signing
+    public static func sendAuthorizeHashSigning(useProxy: Bool, errorHandler: @escaping () -> Void) {
+        let parameters = ["useproxy": String(useProxy)]
+        sendRequest(.authorizeHashSigning, parameters: parameters, errorHandler: errorHandler)
+    }
+
+    // Send an execution request for hash signing
+    public static func sendExecuteHashSigning(data: String, hashData: String, useProxy: Bool, errorHandler: @escaping () -> Void) {
+        let parameters = ["data": data, "hash": hashData, "useproxy": String(useProxy)]
+        sendRequest(.executeHashSigning, parameters: parameters, errorHandler: errorHandler)
+    }*/
 }
 
 // MARK: - helper functions
+
 extension MiSignetHelper {
     private static let misignetPackageNameInfoName = "Mi-Signet Package Name"
     private static let misignetRequestURLSchemeInfoName = "Mi-Signet Request URL Scheme"
@@ -128,7 +130,7 @@ extension MiSignetHelper {
 
     // Create an Mi-Signet request URL
     private static func sendRequest(_ type: MiSignetRequestType, parameters: [String: String], errorHandler: @escaping (MiSignetValidationError) -> Void) {
-        print("🆔 sendRequest(type: \(type), parameters: \(parameters), errorHandler: \(String(describing: errorHandler))")
+        print("🆔 sendRequest(type: \(type), parameters: \(parameters)")
 
         // check cert is exist
         guard let appCert = getMiSignetAppCert() else {
@@ -145,8 +147,6 @@ extension MiSignetHelper {
             errorHandler(MiSignetValidationError.invalidPlist)
             return
         }
-
-        print("🆔 if let appCert = \(appCert), let requestURLScheme = \(requestURLScheme), let packageName = \(packageName), let responseURLScheme = \(responseURLScheme)")
 
         var queryItems: [URLQueryItem] = [
             URLQueryItem(name: "type", value: String(type.rawValue)),
@@ -245,7 +245,7 @@ extension MiSignetHelper {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         } else {
-            errorHandler(MiSignetValidationError.unknownError)
+            errorHandler(MiSignetValidationError.urlError)
         }
     }
 
@@ -284,7 +284,8 @@ extension MiSignetHelper {
     // Return a property value
     private static func getValueFromInfoList(_ name: String) -> String? {
         guard let value = Bundle.main.infoDictionary?[name] as? String,
-                !value.trimmingCharacters(in: .whitespaces).isEmpty else {
+              !value.trimmingCharacters(in: .whitespaces).isEmpty else
+        {
             return nil
         }
         return value

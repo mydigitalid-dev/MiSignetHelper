@@ -15,15 +15,17 @@ public struct MiSignetResponse {
     public let data: String?
 
     func asURLQueryItems() -> [URLQueryItem] {
-        let typeItem = URLQueryItem(name: "type", value: String(type.rawValue))
-        let codeItem = URLQueryItem(name: "code", value: String(code.rawValue))
-        let stateItem = URLQueryItem(name: "state", value: String(state.rawValue))
+        var queryItems: [URLQueryItem] = [
+            URLQueryItem(name: "type", value: String(type.rawValue)),
+            URLQueryItem(name: "code", value: String(code.rawValue)),
+            URLQueryItem(name: "state", value: String(state.rawValue))
+        ]
+
         if let data = data {
-            let dataItem = URLQueryItem(name: "data", value: data)
-            return [typeItem, codeItem, stateItem, dataItem]
-        } else {
-            return [typeItem, codeItem, stateItem]
+            queryItems.append(URLQueryItem(name: "data", value: data))
         }
+
+        return queryItems
     }
 
     static func fromURLQueryItems(_ urlQueryItems: [URLQueryItem]) -> MiSignetResponse? {
@@ -31,26 +33,36 @@ public struct MiSignetResponse {
         var code: MiSignetResponseCode?
         var state: MiSignetState?
         var data: String?
+
         for urlQueryItem in urlQueryItems {
-            if urlQueryItem.name == "type" {
+            switch urlQueryItem.name {
+            case "type":
                 if let typeInt = Int(urlQueryItem.value!) {
                     type = MiSignetRequestType(rawValue: typeInt)
                 }
-            } else if urlQueryItem.name == "code" {
+
+            case "code":
                 if let codeInt = Int(urlQueryItem.value!) {
                     code = MiSignetResponseCode(rawValue: codeInt)
                 }
-            } else if urlQueryItem.name == "state" {
+
+            case "state":
                 if let stateInt = Int(urlQueryItem.value!) {
                     state = MiSignetState(rawValue: stateInt)
                 }
-            } else if urlQueryItem.name == "data" {
+
+            case "data":
                 data = urlQueryItem.value
+
+            default:
+                break
             }
         }
+
         if let type = type, let code = code, let state = state {
             return MiSignetResponse(type: type, code: code, state: state, data: data)
-        } else {
+        }
+        else {
             return nil
         }
     }

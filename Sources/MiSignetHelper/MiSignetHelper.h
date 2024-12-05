@@ -13,7 +13,3 @@ FOUNDATION_EXPORT double MiSignetHelperVersionNumber;
 
 //! Project version string for MiSignetHelper.
 FOUNDATION_EXPORT const unsigned char MiSignetHelperVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <MiSignetHelper/PublicHeader.h>
-
-

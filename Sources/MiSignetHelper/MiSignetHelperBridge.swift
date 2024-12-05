@@ -41,26 +41,6 @@ public final class ObjC_MiSignetHelper: NSObject {
         return MiSignetHelper.isMiSignetInstalled()
     }
     
-    // Send an authorization request for registration
-//    public static func sendAuthorizeRegistrationRequest(fullName: String, icNumber: String, errorHandler: @escaping () -> Void) {
-//        MiSignetHelper.sendAuthorizeRegistrationRequest(fullName: fullName, icNumber: icNumber, errorHandler: errorHandler)
-//    }
-    
-    // Send an execution request for registration
-//    public static func sendExecuteRegistrationRequest(data: String, errorHandler: @escaping () -> Void) {
-//        MiSignetHelper.sendExecuteRegistrationRequest(data: data, errorHandler: errorHandler)
-//    }
-    
-    // Send an authorization request for storing certificate
-//    public static func sendAuthorizeStoreCertificateRequest(errorHandler: @escaping () -> Void) {
-//        MiSignetHelper.sendAuthorizeStoreCertificateRequest(errorHandler: errorHandler)
-//    }
-    
-    // Send an execution request for storing certificate
-//    public static func sendExecuteStoreCertificateRequest(data: String, userCert: String, errorHandler: @escaping () -> Void) {
-//        MiSignetHelper.sendExecuteStoreCertificateRequest(data: data, userCert: userCert, errorHandler: errorHandler)
-//    }
-    
     // Send an authorization request for submitting certificate
     public static func sendAuthorizeSubmitCertificateRequest(useProxy: Bool, errorHandler: @escaping (MiSignetValidationError) -> Void) {
         MiSignetHelper.sendAuthorizeSubmitCertificateRequest(useProxy: useProxy, errorHandler: errorHandler)
@@ -70,26 +50,6 @@ public final class ObjC_MiSignetHelper: NSObject {
     public static func sendExecuteSubmitCertificateRequest(data: String, useProxy: Bool, errorHandler: @escaping (MiSignetValidationError) -> Void) {
         MiSignetHelper.sendExecuteSubmitCertificateRequest(data: data, useProxy: useProxy, errorHandler: errorHandler)
     }
-    
-    // Send an authorization request for file signing
-//    public static func sendAuthorizeFileSigning(fileName: String, mimeType: String, fileData: Data, useProxy: Bool, errorHandler: @escaping () -> Void) {
-//        MiSignetHelper.sendAuthorizeFileSigning(fileName: fileName, mimeType: mimeType, fileData: fileData, useProxy: useProxy, errorHandler: errorHandler)
-//    }
-    
-    // Send an execution request for file signing
-//    public static func sendExecuteFileSigning(data: String, fileData: Data, useProxy: Bool, errorHandler: @escaping () -> Void) {
-//        MiSignetHelper.sendExecuteFileSigning(data: data, fileData: fileData, useProxy: useProxy, errorHandler: errorHandler)
-//    }
-    
-    // Send an authorization request for hash signing
-//    public static func sendAuthorizeHashSigning(useProxy: Bool, errorHandler: @escaping () -> Void) {
-//        MiSignetHelper.sendAuthorizeHashSigning(useProxy: useProxy, errorHandler: errorHandler)
-//    }
-    
-    // Send an execution request for hash signing
-//    public static func sendExecuteHashSigning(data: String, hashData: String, useProxy: Bool, errorHandler: @escaping () -> Void) {
-//        MiSignetHelper.sendExecuteHashSigning(data: data, hashData: hashData, useProxy: useProxy, errorHandler: errorHandler)
-//    }
     
     // Send a request to view the certificate
     public static func viewCertificate(errorHandler: @escaping (MiSignetValidationError) -> Void) {
@@ -115,4 +75,45 @@ public final class ObjC_MiSignetHelper: NSObject {
             return nil
         }
     }
+    
+    /*
+    // Send an authorization request for registration
+    public static func sendAuthorizeRegistrationRequest(fullName: String, icNumber: String, errorHandler: @escaping () -> Void) {
+        MiSignetHelper.sendAuthorizeRegistrationRequest(fullName: fullName, icNumber: icNumber, errorHandler: errorHandler)
+    }
+    
+    // Send an execution request for registration
+    public static func sendExecuteRegistrationRequest(data: String, errorHandler: @escaping () -> Void) {
+        MiSignetHelper.sendExecuteRegistrationRequest(data: data, errorHandler: errorHandler)
+    }
+    
+    // Send an authorization request for storing certificate
+    public static func sendAuthorizeStoreCertificateRequest(errorHandler: @escaping () -> Void) {
+        MiSignetHelper.sendAuthorizeStoreCertificateRequest(errorHandler: errorHandler)
+    }
+    
+    // Send an execution request for storing certificate
+    public static func sendExecuteStoreCertificateRequest(data: String, userCert: String, errorHandler: @escaping () -> Void) {
+        MiSignetHelper.sendExecuteStoreCertificateRequest(data: data, userCert: userCert, errorHandler: errorHandler)
+    }
+    
+    // Send an authorization request for file signing
+    public static func sendAuthorizeFileSigning(fileName: String, mimeType: String, fileData: Data, useProxy: Bool, errorHandler: @escaping () -> Void) {
+        MiSignetHelper.sendAuthorizeFileSigning(fileName: fileName, mimeType: mimeType, fileData: fileData, useProxy: useProxy, errorHandler: errorHandler)
+    }
+    
+    // Send an execution request for file signing
+    public static func sendExecuteFileSigning(data: String, fileData: Data, useProxy: Bool, errorHandler: @escaping () -> Void) {
+        MiSignetHelper.sendExecuteFileSigning(data: data, fileData: fileData, useProxy: useProxy, errorHandler: errorHandler)
+    }
+    
+    // Send an authorization request for hash signing
+    public static func sendAuthorizeHashSigning(useProxy: Bool, errorHandler: @escaping () -> Void) {
+        MiSignetHelper.sendAuthorizeHashSigning(useProxy: useProxy, errorHandler: errorHandler)
+    }
+    
+    // Send an execution request for hash signing
+    public static func sendExecuteHashSigning(data: String, hashData: String, useProxy: Bool, errorHandler: @escaping () -> Void) {
+        MiSignetHelper.sendExecuteHashSigning(data: data, hashData: hashData, useProxy: useProxy, errorHandler: errorHandler)
+    }*/
 }

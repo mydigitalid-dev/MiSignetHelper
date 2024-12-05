@@ -6,7 +6,8 @@
 //
 
 public enum MiSignetValidationError {
-    case certNotFound
+    case certNotFound 
     case invalidPlist
+    case urlError
     case unknownError
 }
