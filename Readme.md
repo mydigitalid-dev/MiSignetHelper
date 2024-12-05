@@ -14,18 +14,19 @@ Removed unused MiSignetHelper functions:
 - sendExecuteFileSigning
 - sendAuthorizeHashSigning
 - sendExecuteHashSigning
-    
-New debugMode() function for debug logging toggle.
 
+## Toggle debug mode
+New debugMode() function for debug logging toggle.
 Usage:
 ```swift
 MiSignetHelper.debugMode(true)
 ```
 
+## Error handling
 New MiSignetValidationError enum and error closure now returns this. Usage:
 ```swift
 MiSignetHelper.sendAuthorizeSubmitCertificateRequest(useProxy: false, errorHandler: { errorCode in
-  print("🆘 Error requesting token 1 from MyDigitalID app. Error Code: \(errorCode)")
+  print("Error requesting token 1 from MyDigitalID app. Error Code: \(errorCode)")
 })
 ```
 
