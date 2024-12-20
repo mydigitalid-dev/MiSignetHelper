@@ -51,11 +51,6 @@ public final class ObjC_MiSignetHelper: NSObject {
         MiSignetHelper.sendExecuteSubmitCertificateRequest(data: data, useProxy: useProxy, errorHandler: errorHandler)
     }
     
-    // Send a request to view the certificate
-    public static func viewCertificate(errorHandler: @escaping (MiSignetValidationError) -> Void) {
-        MiSignetHelper.viewCertificate(errorHandler: errorHandler)
-    }
-    
     // Send a request to retrieve the registration state of the Mi-Signet Client app
     public static func getState(errorHandler: @escaping (MiSignetValidationError) -> Void) {
         MiSignetHelper.getState(errorHandler: errorHandler)
@@ -77,6 +72,11 @@ public final class ObjC_MiSignetHelper: NSObject {
     }
     
     /*
+     // Send a request to view the certificate
+     public static func viewCertificate(errorHandler: @escaping (MiSignetValidationError) -> Void) {
+         MiSignetHelper.viewCertificate(errorHandler: errorHandler)
+     }
+     
     // Send an authorization request for registration
     public static func sendAuthorizeRegistrationRequest(fullName: String, icNumber: String, errorHandler: @escaping () -> Void) {
         MiSignetHelper.sendAuthorizeRegistrationRequest(fullName: fullName, icNumber: icNumber, errorHandler: errorHandler)

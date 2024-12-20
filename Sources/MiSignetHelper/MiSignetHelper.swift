@@ -40,11 +40,6 @@ public struct MiSignetHelper {
         sendRequest(.executeSubmitCertificate, parameters: parameters, errorHandler: errorHandler)
     }
 
-    // Send a request to view the certificate
-    public static func viewCertificate(errorHandler: @escaping (MiSignetValidationError) -> Void) {
-        sendRequest(.viewCertificate, parameters: [:], errorHandler: errorHandler)
-    }
-
     // Send a request to retrieve the registration state of the Mi-Signet Client app
     public static func getState(errorHandler: @escaping (MiSignetValidationError) -> Void) {
         sendRequest(.getState, parameters: [:], errorHandler: errorHandler)
@@ -68,6 +63,11 @@ public struct MiSignetHelper {
     }
 
     /*
+     // Send a request to view the certificate
+     public static func viewCertificate(errorHandler: @escaping (MiSignetValidationError) -> Void) {
+         sendRequest(.viewCertificate, parameters: [:], errorHandler: errorHandler)
+     }
+     
     // Send an authorization request for registration
     public static func sendAuthorizeRegistrationRequest(fullName: String, icNumber: String, errorHandler: @escaping () -> Void) {
         // print("sendAuthorizeRegistrationRequest MiSignetHelper")
