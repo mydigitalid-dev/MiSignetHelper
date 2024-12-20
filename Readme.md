@@ -14,6 +14,7 @@ Removed unused MiSignetHelper functions:
 - sendExecuteFileSigning
 - sendAuthorizeHashSigning
 - sendExecuteHashSigning
+- viewCertificate
 
 ## Toggle debug mode
 New debugMode() function for debug logging toggle.
